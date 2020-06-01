@@ -12,9 +12,13 @@ class App extends React.Component {
 
   executeMe(){
     let input = document.getElementById("input-list").value;
-    let updatedList = [...this.state.list];
-    updatedList.push(input);
-    this.setState({list: updatedList});
+    if(input.length > 1 && input.length < 15){
+      let updatedList = [...this.state.list];
+      updatedList.push(input);
+      this.setState({list: updatedList});
+    }else {
+      alert("Please enter more than 1 character and less than 15!");
+    }
   }
 
   render() {
