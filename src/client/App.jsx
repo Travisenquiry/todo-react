@@ -21,6 +21,12 @@ class App extends React.Component {
     }
   }
 
+  destroyMe() {
+    let updatedList = [...this.state.list];
+    updatedList.pop();
+    this.setState({list: updatedList});
+  }
+
   render() {
     let list = this.state.list.map(item => {
       return <li>{item}</li>
@@ -29,6 +35,7 @@ class App extends React.Component {
       <div>
         <input id="input-list"></input>
         <button onClick={() => {this.executeMe();}}>press me</button>
+        <button onClick={() => {this.destroyMe();}}>destroy me</button>
         <div>
           <h3>My Todo List</h3>
           <ul>
