@@ -1,6 +1,7 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
 import Form from 'form';
+import Itemlist from 'itemlist';
 
 class App extends React.Component {
   constructor(){
@@ -33,9 +34,6 @@ class App extends React.Component {
   }
 
   render() {
-    let list = this.state.list.map(item => {
-      return <li>{item}</li>
-    });
 
     return (
       <div>
@@ -43,7 +41,7 @@ class App extends React.Component {
         <div>
           <h3>My Todo List</h3>
           <ul>
-            {list}
+            <Itemlist list={this.state.list} />
           </ul>
         </div>
       </div>
