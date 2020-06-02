@@ -1,16 +1,21 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
+import Form from 'form';
 
 class App extends React.Component {
   constructor(){
-    super()
+    super();
 
     this.state = {
       list: []
     }
+
+    this.executeMe = this.executeMe.bind(this);
+    this.destroyMe = this.destroyMe.bind(this);
   }
 
   executeMe(){
+    console.log("Executed");
     let input = document.getElementById("input-list").value;
     if(input.length > 1 && input.length < 15){
       let updatedList = [...this.state.list];
@@ -31,11 +36,10 @@ class App extends React.Component {
     let list = this.state.list.map(item => {
       return <li>{item}</li>
     });
+
     return (
       <div>
-        <input id="input-list"></input>
-        <button onClick={() => {this.executeMe();}}>press me</button>
-        <button onClick={() => {this.destroyMe();}}>destroy me</button>
+        <Form add={this.executeMe} remove={this.destroyMe} />
         <div>
           <h3>My Todo List</h3>
           <ul>
