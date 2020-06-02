@@ -9,8 +9,8 @@ export default class Itemlist extends React.Component {
 
   createList(array){
     let items = array;
-    let list = items.map(item => {
-        return <Todoitem name={item} />
+    let list = items.map((item, index) => {
+        return <Todoitem name={item} remove={this.props.remove} index={index}/>
     });
     return list;
   }

@@ -27,21 +27,20 @@ class App extends React.Component {
     }
   }
 
-  destroyMe() {
+  destroyMe(index) {
     let updatedList = [...this.state.list];
-    updatedList.pop();
+    updatedList.splice(index, 1);
     this.setState({list: updatedList});
   }
 
   render() {
-
     return (
       <div>
-        <Form add={this.executeMe} remove={this.destroyMe} />
+        <Form add={this.executeMe} />
         <div>
           <h3>My Todo List</h3>
           <ul>
-            <Itemlist list={this.state.list} />
+            <Itemlist list={this.state.list} remove={this.destroyMe} />
           </ul>
         </div>
       </div>

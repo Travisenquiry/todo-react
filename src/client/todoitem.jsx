@@ -7,9 +7,13 @@ export default class Todoitem extends React.Component {
   }
 
   render() {
+    let index = this.props.index;
     return (
       <div>
         <li>{this.props.name}</li>
+        <span>
+          <button onClick={() => this.props.remove(index)}>destroy me</button>
+        </span>
       </div>
     );
   }
